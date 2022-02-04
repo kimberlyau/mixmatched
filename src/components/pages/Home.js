@@ -1,27 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
-import {
-    Button,
-    ButtonGroup,
-    Chip,
-    FormControl,
-    Input,
-    InputLabel,
-    Stack,
-    Typography,
-} from '@mui/material';
-import { makeStyles } from '@mui/styles';
-import { ClassNames } from '@emotion/react';
-// import Search from '../users/Search';
-// import Users from '../users/Users';
+import { Button, Typography } from '@mui/material';
+// import { makeStyles } from '@mui/styles';
+import { LibraryMusic, Search as SearchIcon } from '@mui/icons-material';
 
-const handleClick = () => {
-    console.info('You clicked the Chip.');
-};
-
-const handleDelete = () => {
-    console.info('You clicked the delete icon.');
-};
+// import { ClassNames } from '@emotion/react';
+import Search from '../artists/search';
 
 const Home = () => {
     return (
@@ -33,43 +17,31 @@ const Home = () => {
                 transform: 'translate(-50%, -50%)',
             }}
         >
+            <Button
+                color='primary'
+                startIcon={<LibraryMusic />}
+                size='large'
+                onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = '/artist';
+                }}
+            >
+                Random Artist
+            </Button>
             <Typography variant='h1'>mixmatched</Typography>
-            <FormControl fullWidth sx={{ m: 1 }}>
-                <InputLabel htmlFor='standard-adornment-search'>
-                    Search
-                </InputLabel>
-                <Input
-                    id='standard-adornment-search'
-                    // value={values.amount}
-                    // onChange={handleChange('amount')}
-                />
-            </FormControl>
-            <Stack direction='row' spacing={1} m={2}>
-                <Chip
-                    label='Clickable Deletable'
-                    onClick={handleClick}
-                    onDelete={handleDelete}
-                    variant='outlined'
-                />
-                <Chip
-                    label='Clickable Deletable'
-                    onClick={handleClick}
-                    onDelete={handleDelete}
-                    variant='outlined'
-                />
-                <Chip
-                    label='Clickable Deletable'
-                    onClick={handleClick}
-                    onDelete={handleDelete}
-                    variant='outlined'
-                />
-                <Chip
-                    label='Clickable Deletable'
-                    onClick={handleClick}
-                    onDelete={handleDelete}
-                    variant='outlined'
-                />
-            </Stack>
+            <br></br>
+            <Search />
+            <br></br>
+            <Button
+                variant='contained'
+                endIcon={<SearchIcon />}
+                onClick={() => {
+                    console.log('search clicked');
+                    // Parse through let chipList = document.getElementsByClassName("MuiChip-label")
+                }}
+            >
+                Search
+            </Button>
         </div>
     );
 };
