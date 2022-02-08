@@ -2,7 +2,14 @@ import * as React from 'react';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 
+import festivalData from '../../assets/files/festival-artist-old.json';
+
 export default function Search() {
+    console.log(festivalData.festivals.length);
+    for (let i = 0; i < festivalData.festivals.length; i++) {
+        console.log(festivalData.festivals[i]);
+    }
+
     return (
         <Autocomplete
             multiple
@@ -11,6 +18,9 @@ export default function Search() {
             options={artistList}
             getOptionLabel={(option) => option.title}
             defaultValue={[artistList[3], artistList[2], artistList[1]]} //Random value
+            isOptionEqualToValue={(option, value) =>
+                option.title === value.title
+            }
             renderInput={(params) => (
                 <TextField
                     {...params}
