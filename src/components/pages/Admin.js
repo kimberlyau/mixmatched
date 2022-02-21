@@ -1,20 +1,14 @@
 import React from 'react';
-import './Result.css';
-import { useLocation } from 'react-router-dom';
-// import artistData from '../../assets/files/frank-ocean.json';
+import './Admin.css';
 
 import { Button, Grid, Typography } from '@mui/material';
 import { Home } from '@mui/icons-material';
-import GoogleChart from '../results/GoogleChart';
+import BasicCard from '../card';
 // import { GridFilterModel } from '@mui/x-data-grid';
 // import { makeStyles } from '@mui/styles';
 // import { ClassNames } from '@emotion/react';
 
-const Result = () => {
-    let { state } = useLocation();
-    let { dataArray } = state;
-    // alert(dataArray);
-
+const Admin = () => {
     return (
         <div
             style={{
@@ -36,13 +30,31 @@ const Result = () => {
                     Home
                 </Button>
             </div>
-            <div>
-                <Grid>
-                    <Grid item>
-                        <Typography variant='h1'>Matches</Typography>
+            <div
+                style={{
+                    width: '60%',
+                }}
+            >
+                <Typography variant='h4'>Modify Event Information</Typography>
+                <br></br>
+                <Grid container spacing={2}>
+                    <Grid item xs={4}>
+                        <BasicCard />
                     </Grid>
-                    <Grid item>
-                        <GoogleChart dataArray={dataArray} />
+                    <Grid item xs={4}>
+                        <BasicCard />
+                    </Grid>
+                    <Grid item xs={4}>
+                        <BasicCard />
+                    </Grid>
+                    <Grid item xs={4}>
+                        <BasicCard />
+                    </Grid>
+                    <Grid item xs={4}>
+                        <BasicCard />
+                    </Grid>
+                    <Grid item xs={4}>
+                        <BasicCard />
                     </Grid>
                 </Grid>
             </div>
@@ -50,4 +62,4 @@ const Result = () => {
     );
 };
 
-export default Result;
+export default Admin;

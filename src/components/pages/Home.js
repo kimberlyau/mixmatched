@@ -1,9 +1,14 @@
 import React from 'react';
+import './Home.css';
 import { useNavigate } from 'react-router-dom';
 
 import { Button, Typography } from '@mui/material';
 // import { makeStyles } from '@mui/styles';
-import { LibraryMusic, Search as SearchIcon } from '@mui/icons-material';
+import {
+    AdminPanelSettings,
+    LibraryMusic,
+    Search as SearchIcon,
+} from '@mui/icons-material';
 
 // import { ClassNames } from '@emotion/react';
 import Search from '../artists/search';
@@ -20,17 +25,6 @@ const Home = () => {
             }}
         >
             <div>
-                <Button
-                    color='primary'
-                    startIcon={<LibraryMusic />}
-                    size='large'
-                    onClick={(e) => {
-                        e.preventDefault();
-                        window.location.href = '/artist';
-                    }}
-                >
-                    Random Artist
-                </Button>
                 <Typography variant='h1'>mixmatched</Typography>
                 <br></br>
                 <Search />
@@ -56,6 +50,30 @@ const Home = () => {
                 >
                     Search
                 </Button>
+                <div id='random-artist'>
+                    <Button
+                        color='primary'
+                        startIcon={<LibraryMusic />}
+                        size='large'
+                        onClick={(e) => {
+                            e.preventDefault();
+                            window.location.href = '/artist';
+                        }}
+                    >
+                        Random Artist
+                    </Button>
+                </div>
+            </div>
+            <div id='footer'>
+                <Button
+                    color='primary'
+                    startIcon={<AdminPanelSettings />}
+                    size='large'
+                    onClick={(e) => {
+                        e.preventDefault();
+                        window.location.href = '/admin';
+                    }}
+                ></Button>
             </div>
         </div>
     );

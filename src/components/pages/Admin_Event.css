@@ -4,6 +4,10 @@
     margin-top: 9px;
 }
 
+#grid-container {
+    margin-top: 36px;
+}
+
 @media only screen and (min-width: 1px) {
     .show-lg {
         display: none;

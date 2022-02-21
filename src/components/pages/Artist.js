@@ -17,7 +17,7 @@ const Artist = () => {
                 alignItems: 'center',
             }}
         >
-            <div>
+            <div id='navbar'>
                 <Button
                     color='primary'
                     startIcon={<Home />}
@@ -29,7 +29,9 @@ const Artist = () => {
                 >
                     Home
                 </Button>
-                <Grid container rowSpacing={6} columnSpacing={{ md: 12 }}>
+            </div>
+            <div>
+                <Grid container rowSpacing={3} columnSpacing={{ md: 12 }}>
                     <Grid item xs={12} md={6}>
                         <div>
                             <Typography variant='h2'>
@@ -38,7 +40,7 @@ const Artist = () => {
                             <img
                                 src={artistData.images[0].url}
                                 style={{
-                                    height: '35vh',
+                                    height: '40vh',
                                 }}
                                 alt={artistData.name}
                             />

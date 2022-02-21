@@ -1,0 +1,16 @@
+#random-artist {
+    margin-top: 9px;
+}
+
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 9px;
+}
+
+#footer .css-htszrh-MuiButton-startIcon {
+    margin-right: 0;
+    margin-left: 0;
+}
