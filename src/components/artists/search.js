@@ -6,9 +6,32 @@ import festivalData from '../../assets/files/festival-artist-old.json';
 
 export default function Search() {
     console.log(festivalData.festivals.length);
+
+    let artistList = [];
+    let artistLength = 0;
+
+    // Iterate through all festivals
     for (let i = 0; i < festivalData.festivals.length; i++) {
-        console.log(festivalData.festivals[i]);
+        // Iterate through each artist per festival
+        for (let j = 0; j < festivalData.festivals[i].artists.length; j++) {
+            // Add to artist array if not duplicate
+
+            if (
+                artistList
+                    .map((artistObj) => artistObj.title)
+                    .indexOf(festivalData.festivals[i].artists[j].title) === -1
+            ) {
+                artistList.push(festivalData.festivals[i].artists[j]);
+            }
+        }
     }
+
+    artistLength = artistList.length;
+
+    // Alphabetize array
+    artistList.sort((artistA, artistB) =>
+        artistA.title > artistB.title ? 1 : -1
+    );
 
     return (
         <Autocomplete
@@ -17,7 +40,9 @@ export default function Search() {
             id='multiple-limit-tags'
             options={artistList}
             getOptionLabel={(option) => option.title}
-            defaultValue={[artistList[3], artistList[2], artistList[1]]} //Random value
+            defaultValue={[
+                artistList[Math.floor(Math.random() * artistLength)],
+            ]} //Random value
             isOptionEqualToValue={(option, value) =>
                 option.title === value.title
             }
@@ -25,23 +50,9 @@ export default function Search() {
                 <TextField
                     {...params}
                     label='Search Artists'
-                    placeholder='See more'
+                    placeholder='Scroll to see more'
                 />
             )}
         />
     );
 }
-
-// TODO: Grab from JSON
-const artistList = [
-    { title: 'The Strokes' },
-    { title: 'Tyler the Creator' },
-    { title: 'Glass Animals' },
-    { title: 'Kaytranada' },
-    { title: 'Khruangbin' },
-    { title: 'SG Lewis' },
-    { title: 'Flo Milli' },
-    { title: 'Vampire Weekend' },
-    { title: 'Zhu' },
-    { title: 'Doja Cat' },
-];

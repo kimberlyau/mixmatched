@@ -26,6 +26,7 @@ function createData(name, idnumber) {
     };
 }
 
+// TODO: Read from JSON
 const rows = [
     createData('Tyler the Creator', '30jrn23k12lj3lk2j1l3j4kj23n5'),
     createData('Glass Animals', '451klj232l1kj3lkj12lj2llkj12l2'),

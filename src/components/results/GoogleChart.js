@@ -1,14 +1,32 @@
 import React from 'react';
 import Chart from 'react-google-charts';
 
-// TODO: Move functions??
-const getRandomColor = () => {
-    return Math.floor(Math.random() * 16777215).toString(16);
-};
+// import festivalData from '../../assets/files/festival-artist-old.json';
+import festivalData from '../../assets/files/festival-artist.json';
+import festivalEventData from '../../assets/files/festivals.json';
 
-// Will be real match data
-const getMatches = (max) => {
-    return Math.floor(Math.random() * max);
+// https://stackoverflow.com/questions/13833463/how-do-i-generate-a-random-hex-code-that-of-a-lighter-color-in-javascript
+function randHex() {
+    return (Math.floor(Math.random() * 56) + 150).toString(16);
+}
+
+function randColor() {
+    return `#${randHex() + '' + randHex() + '' + randHex()}`;
+}
+
+const getFestivalMatches = (festival, artistList) => {
+    let festivalMatch = 0;
+    let festivalMatchList = [];
+
+    // Check match for particular festival
+    for (let i = 0; i < artistList.length; i++) {
+        // Check if artist is in festival
+        if (festival.indexOf(artistList[i]) !== -1) {
+            festivalMatch++;
+            festivalMatchList.push(artistList[i]);
+        }
+    }
+    return [festivalMatch, festivalMatchList];
 };
 
 // Source: https://www.positronx.io/react-js-google-stacked-bar-chart-example-tutorial/
@@ -19,31 +37,32 @@ const GoogleChart = (props) => {
     let data = [];
     // Header element
     data.push([
-        'Artist',
-        'Match Percentage',
+        'Event',
+        'Match Count',
         { role: 'style' },
         { role: 'annotation' },
     ]);
 
     let currMatches;
+    let matchList = [];
 
-    for (let i = 0; i < artistList.length; i++) {
-        currMatches = getMatches(10);
+    // Iterate through all festivals
+    for (let i = 0; i < festivalEventData.concerts.length; i++) {
+        // Get matches for each event
+        [currMatches, matchList] = getFestivalMatches(
+            festivalData[festivalEventData.concerts[i]],
+            artistList
+        );
+
+        // Push data into results
         data.push([
-            artistList[i],
+            festivalEventData.concerts[i],
             currMatches,
-            getRandomColor(),
-            `${currMatches}`,
+            randColor(),
+            `${matchList.join(',')}`,
         ]);
     }
 
-    // const data = [
-    //     ['Element', 'Density', { role: 'style' }, { role: 'annotation' }],
-    //     ['Copper', 8.94, '#b87333', 'Cu'],
-    //     ['Silver', 10.49, 'silver', 'Ag'],
-    //     ['Gold', 19.3, 'gold', 'Au'],
-    //     ['Platinum', 21.45, 'color: #e5e4e2', 'Pt'],
-    // ];
     return (
         <div className='container mt-5'>
             {/* <h2>React Basic Bar Chart with Multiple Series</h2> */}
@@ -57,11 +76,11 @@ const GoogleChart = (props) => {
                     title: 'Matches to Event',
                     chartArea: { width: '50%' },
                     hAxis: {
-                        title: 'Match Percentage',
+                        title: 'Match Count',
                         minValue: 0,
                     },
                     vAxis: {
-                        title: 'Artist',
+                        title: 'Event',
                     },
                     backgroundColor: '#f5f5f5',
                 }}
