@@ -60,7 +60,7 @@ const Home = () => {
                             window.location.href = '/artist';
                         }}
                     >
-                        Random Artist
+                        Explore Random Artist
                     </Button>
                 </div>
             </div>
