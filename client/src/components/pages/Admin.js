@@ -4,6 +4,8 @@ import './Admin.css';
 import { Button, Grid, Typography } from '@mui/material';
 import { Home } from '@mui/icons-material';
 import BasicCard from '../card';
+
+import { Events } from '../events/Events';
 // import { GridFilterModel } from '@mui/x-data-grid';
 // import { makeStyles } from '@mui/styles';
 // import { ClassNames } from '@emotion/react';
@@ -38,24 +40,7 @@ const Admin = () => {
                 <Typography variant='h4'>Modify Event Information</Typography>
                 <br></br>
                 <Grid container spacing={2}>
-                    <Grid item xs={4}>
-                        <BasicCard />
-                    </Grid>
-                    <Grid item xs={4}>
-                        <BasicCard />
-                    </Grid>
-                    <Grid item xs={4}>
-                        <BasicCard />
-                    </Grid>
-                    <Grid item xs={4}>
-                        <BasicCard />
-                    </Grid>
-                    <Grid item xs={4}>
-                        <BasicCard />
-                    </Grid>
-                    <Grid item xs={4}>
-                        <BasicCard />
-                    </Grid>
+                    <Events />
                 </Grid>
             </div>
         </div>

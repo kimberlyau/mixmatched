@@ -9,19 +9,23 @@ import Artist from './components/pages/Artist';
 import Result from './components/pages/Result';
 import EventEdit from './components/pages/Admin_Event';
 
+import MusicEventState from './context/musicEvent/MusicEventState';
+
 const App = () => {
     return (
-        <Router>
-            <div className='App'>
-                <Routes>
-                    <Route exact path='/' element={<Home />} />
-                    <Route exact path='/admin' element={<Admin />} />
-                    <Route exact path='/artist' element={<Artist />} />
-                    <Route exact path='/result' element={<Result />} />
-                    <Route exact path='/edit' element={<EventEdit />} />
-                </Routes>
-            </div>
-        </Router>
+        <MusicEventState>
+            <Router>
+                <div className='App'>
+                    <Routes>
+                        <Route exact path='/' element={<Home />} />
+                        <Route exact path='/admin' element={<Admin />} />
+                        <Route exact path='/artist' element={<Artist />} />
+                        <Route exact path='/result' element={<Result />} />
+                        <Route exact path='/edit' element={<EventEdit />} />
+                    </Routes>
+                </div>
+            </Router>
+        </MusicEventState>
     );
 };
 
