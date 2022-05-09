@@ -71,7 +71,11 @@ const Home = () => {
                     size='large'
                     onClick={(e) => {
                         e.preventDefault();
-                        window.location.href = '/admin';
+                        if (localStorage.token) {
+                            navigate('/admin');
+                        } else {
+                            navigate('/login');
+                        }
                     }}
                 ></Button>
             </div>

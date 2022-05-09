@@ -45,7 +45,7 @@ router.post(
             // Error if user not in system
             if (!user) {
                 return res
-                    .status(400)
+                    .status(401)
                     .json({ msg: 'Invalid login credentials' });
             }
 
@@ -53,7 +53,7 @@ router.post(
 
             // Error if password invalid
             if (!isMatch) {
-                return res.status(400).json({ msg: 'Invalid password' });
+                return res.status(401).json({ msg: 'Invalid password' });
             }
 
             // Object to send in JWT

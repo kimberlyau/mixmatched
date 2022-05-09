@@ -6,11 +6,11 @@ import MusicEventContext from '../../context/musicEvent/musicEventContext';
 export const Events = () => {
     const musicEventContext = useContext(MusicEventContext);
 
-    const { musicEvents } = musicEventContext;
+    const { events } = musicEventContext;
 
     return (
         <Fragment>
-            {musicEvents.map((event) => (
+            {events.map((event) => (
                 <EventItem key={event.name} event={event} />
             ))}
         </Fragment>
