@@ -1,5 +1,106 @@
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Roboto';
+    margin-block-start: 0.25em;
+    margin-block-end: 0.25em;
+}
+
+h2 {
+    font-weight: 300;
+}
+
+.result-page {
+    padding: 0 15%;
+}
+
+.match-heading {
+    font-size: 48px;
+    text-align: left;
+    margin-top: 40px;
+}
+
 #navbar {
     position: fixed;
     top: 0;
     margin-top: 9px;
+}
+
+/* TODO: Color variables */
+.result-container {
+    margin-top: 24px;
+}
+
+.result-card {
+    background-color: #1976d2b2;
+    padding: 50px 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.result-card:hover {
+    background-color: #1976d2;
+}
+
+.result-card a {
+    width: 250px;
+}
+
+.artist-heading {
+    margin-top: 24px;
+}
+
+.artist-chosen-container {
+    border: 1px solid #f5f5f5;
+    margin-bottom: 24px;
+    padding: 20px 20px 36px 20px;
+    max-height: 125px;
+    min-height: 100px;
+    overflow: -moz-scrollbars-vertical;
+    overflow-y: scroll;
+}
+
+.artist-chosen-container:hover {
+    border: 1px solid #1976d2b2;
+}
+
+.artist-chosen-container .artist-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 12px;
+    row-gap: 12px;
+}
+
+.Card:hover {
+    background-color: black;
+}
+
+/* Extra large devices (large laptops and desktops) */
+@media only screen and (max-width: 1200px) {
+    .result-page {
+        padding: 0 0;
+    }
+}
+
+/* Large devices (laptops/desktops) */
+@media only screen and (max-width: 992px) {
+    .result-page {
+        padding: 0 10%;
+    }
+}
+
+/* Medium devices (landscape tablets) */
+@media only screen and (max-width: 768px) {
+    .result-card {
+        padding: 25px 50px;
+    }
+}
+
+/* Small devices (portrait tablets and large phones) */
+@media only screen and (max-width: 600px) {
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
 }

@@ -13,7 +13,6 @@ export default (state, action) => {
             return {
                 ...state,
                 isAuthenticated: true,
-                loading: false,
                 user: action.payload,
             };
         case AUTH_ERROR:
@@ -23,7 +22,6 @@ export default (state, action) => {
             return {
                 ...state,
                 isAuthenticated: false,
-                loading: false,
                 user: null,
                 error: action.payload,
             };
@@ -33,7 +31,6 @@ export default (state, action) => {
                 ...state,
                 ...action.payload,
                 isAuthenticated: true,
-                loading: false,
             };
         default:
             return state;

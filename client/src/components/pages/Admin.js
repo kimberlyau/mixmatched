@@ -40,7 +40,7 @@ const Admin = () => {
                     size='large'
                     onClick={(e) => {
                         e.preventDefault();
-                        window.location.href = '/';
+                        navigate('/');
                     }}
                 >
                     Home
@@ -53,9 +53,8 @@ const Admin = () => {
             >
                 <Typography variant='h4'>Modify Event Information</Typography>
                 <br></br>
-                <Grid container spacing={2}>
-                    <Events />
-                </Grid>
+
+                <Events />
 
                 <EventForm />
             </div>

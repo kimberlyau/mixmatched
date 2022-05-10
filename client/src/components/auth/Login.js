@@ -58,7 +58,7 @@ const Login = (props) => {
                     size='large'
                     onClick={(e) => {
                         e.preventDefault();
-                        window.location.href = '/';
+                        navigate('/');
                     }}
                 >
                     Home

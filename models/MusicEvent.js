@@ -18,7 +18,7 @@ const MusicEventSchema = mongoose.Schema({
     },
     description: {
         type: String,
-        required: false,
+        required: true,
     },
     cost: {
         type: Number,

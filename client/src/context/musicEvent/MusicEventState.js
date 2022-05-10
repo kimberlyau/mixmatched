@@ -1,30 +1,15 @@
 import React, { useReducer } from 'react';
-import { v4 } from 'uuid';
+import axios from 'axios';
 import MusicEventContext from './musicEventContext';
 import musicEventReducer from './musicEventReducer';
 
-import { ADD_EVENT, DELETE_EVENT, GET_EVENT } from '../types';
+import { ADD_EVENT, DELETE_EVENT, GET_EVENTS, EVENT_ERROR } from '../types';
 
 const MusicEventState = (props) => {
     const initialState = {
-        events: [
-            {
-                name: 'Lollapalooza',
-                cost: 400,
-                artists: [],
-            },
-            {
-                name: 'EDC',
-                cost: 200,
-                artists: [],
-            },
-            {
-                name: 'HARD Summer',
-                cost: 100,
-                artists: [],
-            },
-        ],
+        events: [],
         current: null,
+        error: null,
     };
 
     const [state, dispatch] = useReducer(musicEventReducer, initialState);
@@ -35,17 +20,39 @@ const MusicEventState = (props) => {
         // const res = await axios.get(
         //     `https://api.github.com/users/${username}?client_id=${githubClientId}&client_secret=${githubClientSecret}`
         // );
+        // dispatch({
+        //     type: GET_EVENT,
+        //     // payload: res.data,
+        // });
+    };
 
-        dispatch({
-            type: GET_EVENT,
-            // payload: res.data,
-        });
+    // Get All Music Events
+    const getMusicEvents = async () => {
+        try {
+            const res = await axios.get('/api/musicEvents');
+
+            dispatch({ type: GET_EVENTS, payload: res.data });
+        } catch (error) {
+            dispatch({ type: EVENT_ERROR, payload: error.response.msg });
+        }
     };
 
     // Add Music Event
-    const addMusicEvent = (event) => {
-        event.id = v4();
-        dispatch({ type: ADD_EVENT, payload: event });
+    const addMusicEvent = async (event) => {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        };
+
+        try {
+            const res = await axios.post('/api/musicEvents', event, config);
+
+            dispatch({ type: ADD_EVENT, payload: res.data });
+        } catch (error) {
+            alert(error.response.msg);
+            dispatch({ type: EVENT_ERROR, payload: error.response.msg });
+        }
     };
 
     // Delete Music Event
@@ -54,7 +61,9 @@ const MusicEventState = (props) => {
         <MusicEventContext.Provider
             value={{
                 events: state.events,
+                error: state.error,
                 addMusicEvent,
+                getMusicEvents,
             }}
         >
             {props.children}

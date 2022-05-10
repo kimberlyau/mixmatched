@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Admin_Event.css';
 
 import { Box, Button, Modal, Typography } from '@mui/material';
@@ -9,6 +10,8 @@ import FullFeaturedCrudGrid from '../table';
 // import { ClassNames } from '@emotion/react';
 
 const EventEdit = () => {
+    const navigate = useNavigate();
+
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -27,7 +30,7 @@ const EventEdit = () => {
                     size='large'
                     onClick={(e) => {
                         e.preventDefault();
-                        window.location.href = '/';
+                        navigate('/');
                     }}
                 >
                     Home
@@ -91,7 +94,7 @@ const EventEdit = () => {
                         size='large'
                         onClick={(e) => {
                             e.preventDefault();
-                            window.location.href = '/admin';
+                            navigate('/admin');
                         }}
                     >
                         Back

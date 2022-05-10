@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Home.css';
 import { useNavigate } from 'react-router-dom';
+import AuthContext from '../../context/auth/authContext';
 
 import { Button, Typography } from '@mui/material';
 // import { makeStyles } from '@mui/styles';
@@ -15,6 +16,10 @@ import Search from '../artists/search';
 
 const Home = () => {
     const navigate = useNavigate();
+
+    const authContext = useContext(AuthContext);
+
+    const { isAuthenticated } = authContext;
 
     return (
         <div
@@ -57,7 +62,7 @@ const Home = () => {
                         size='large'
                         onClick={(e) => {
                             e.preventDefault();
-                            window.location.href = '/artist';
+                            navigate('/artist');
                         }}
                     >
                         Explore Random Artist
@@ -71,7 +76,7 @@ const Home = () => {
                     size='large'
                     onClick={(e) => {
                         e.preventDefault();
-                        if (localStorage.token) {
+                        if (isAuthenticated) {
                             navigate('/admin');
                         } else {
                             navigate('/login');

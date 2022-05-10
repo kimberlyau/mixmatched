@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Artist.css';
 import artistData from '../../assets/files/frank-ocean.json';
 
@@ -9,6 +10,8 @@ import { Home } from '@mui/icons-material';
 // import { ClassNames } from '@emotion/react';
 
 const Artist = () => {
+    const navigate = useNavigate();
+
     return (
         <div
             style={{
@@ -24,7 +27,7 @@ const Artist = () => {
                     size='large'
                     onClick={(e) => {
                         e.preventDefault();
-                        window.location.href = '/';
+                        navigate('/');
                     }}
                 >
                     Home

@@ -6,6 +6,7 @@ const EventForm = () => {
 
     const [event, setEvent] = useState({
         name: '',
+        cost: '',
         description: '',
     });
 
@@ -16,11 +17,13 @@ const EventForm = () => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        musicEventContext.addMusicEvent(event);
-        setEvent({
-            name: '',
-            description: '',
-        });
+        musicEventContext.addMusicEvent(event).then(() => setEvent(event));
+        // musicEventContext.addMusicEvent(event);
+        // setEvent({
+        //     name: '',
+        //     cost: '',
+        //     description: '',
+        // });
     };
     return (
         <form onSubmit={onSubmit}>
@@ -33,9 +36,16 @@ const EventForm = () => {
                 onChange={onChange}
             />
             <input
+                type='number'
+                placeholder='Cost in USD ($)'
+                name='cost'
+                defaultValue=''
+                onChange={onChange}
+            />
+            <input
                 type='text'
                 placeholder='City, USA'
-                description='description'
+                name='description'
                 defaultValue=''
                 onChange={onChange}
             />
