@@ -15,7 +15,12 @@ const EventItem = ({ event }) => {
                 <h1>{name}</h1>
                 <h2>{description}</h2>
                 <h3>${cost}</h3>
-                <Button variant='outlined'>View</Button>
+                <Button
+                    variant='contained'
+                    sx={{ backgroundColor: '#1976d2b2' }}
+                >
+                    View
+                </Button>
             </Card>
         </Grid>
     );

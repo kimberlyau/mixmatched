@@ -15,6 +15,7 @@ app.get('/', (req, res) => res.json({ msg: 'Welcome to MixMatched' }));
 app.use('/api/users', require('./routes/users'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/musicEvents', require('./routes/musicEvents'));
+app.use('/api/musicArtists', require('./routes/musicArtists'));
 
 const PORT = process.env.PORT || 5000;
 

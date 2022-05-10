@@ -5,6 +5,8 @@ export const EVENT_ERROR = 'EVENT_ERROR';
 
 export const ADD_ARTIST = 'ADD_ARTIST';
 export const DELETE_ARTIST = 'DELETE_ARTIST';
+export const GET_ARTISTS = 'GET_ARTISTS';
+export const ARTIST_ERROR = 'ARTIST_ERROR';
 
 export const SET_ALERT = 'SET_ALERT';
 export const REMOVE_ALERT = 'REMOVE_ALERT';

@@ -1,5 +1,3 @@
-import { Contacts } from '@mui/icons-material';
-import { Card, Grid } from '@mui/material';
 import EventItem from './EventItem';
 import React, { Fragment, useContext, useEffect } from 'react';
 import MusicEventContext from '../../context/musicEvent/musicEventContext';
@@ -20,9 +18,11 @@ export const Events = () => {
             {events.length ? (
                 <div className='events-container'>
                     <div className='events-grid'>
-                        {events.map((event) => (
-                            <EventItem key={event.name} event={event} />
-                        ))}
+                        {events
+                            .sort((a, b) => a.name.localeCompare(b.name))
+                            .map((event) => (
+                                <EventItem key={event.name} event={event} />
+                            ))}
                     </div>
                 </div>
             ) : (

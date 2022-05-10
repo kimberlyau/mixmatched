@@ -1,19 +1,16 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Admin.css';
+import './ArtistDB.css';
 
 import { Button, Grid, Typography } from '@mui/material';
-import { Home, Logout, InterpreterMode } from '@mui/icons-material';
+import { Home, Logout, Event } from '@mui/icons-material';
 import BasicCard from '../card';
 
-import { Events } from '../events/Events';
-import EventForm from '../events/EventForm';
+import { Artists } from '../artists/Artists';
+import ArtistForm from '../artists/ArtistForm';
 import AuthContext from '../../context/auth/authContext';
-// import { GridFilterModel } from '@mui/x-data-grid';
-// import { makeStyles } from '@mui/styles';
-// import { ClassNames } from '@emotion/react';
 
-const Admin = () => {
+const ArtistDB = () => {
     const navigate = useNavigate();
 
     const authContext = useContext(AuthContext);
@@ -47,14 +44,14 @@ const Admin = () => {
                 </Button>
                 <Button
                     color='primary'
-                    startIcon={<InterpreterMode />}
+                    startIcon={<Event />}
                     size='large'
                     onClick={(e) => {
                         e.preventDefault();
-                        navigate('/artistDB');
+                        navigate('/admin');
                     }}
                 >
-                    Modify Artists
+                    Modify Events
                 </Button>
             </div>
             <div
@@ -62,12 +59,12 @@ const Admin = () => {
                     width: '60%',
                 }}
             >
-                <Typography variant='h4'>Modify Event Information</Typography>
+                <Typography variant='h4'>Modify Artist Information</Typography>
                 <br></br>
 
-                <Events />
+                <Artists />
 
-                <EventForm />
+                <ArtistForm />
             </div>
             <div id='footer'>
                 <Button
@@ -83,4 +80,4 @@ const Admin = () => {
     );
 };
 
-export default Admin;
+export default ArtistDB;
