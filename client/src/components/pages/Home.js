@@ -49,7 +49,7 @@ const Home = () => {
                         );
                         // alert(chipArray);
                         navigate('/result', {
-                            state: { dataArray: chipArray },
+                            state: { chosenArtistArray: chipArray },
                         });
                     }}
                 >

@@ -8,8 +8,8 @@ const { Artist } = require('../models/MusicEvent');
 
 // @route   GET api/musicArtist
 // @desc    Get all music artists
-// @access  Private
-router.get('/', auth, async (req, res) => {
+// @access  Public
+router.get('/', async (req, res) => {
     try {
         const musicArtist = await Artist.find();
         res.json(musicArtist);
