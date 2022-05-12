@@ -35,6 +35,7 @@ h2 {
 .result-card {
     background-color: #1976d2b2;
     padding: 50px 10px;
+    min-width: 300px;
     color: white;
     text-decoration: none;
 }

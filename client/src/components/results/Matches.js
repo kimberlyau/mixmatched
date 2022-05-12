@@ -16,7 +16,10 @@ const Matches = ({ events, artists, chosenArtistArray, chosenArtistData }) => {
             (eventCounter = []).length = events.length;
             eventCounter.fill(0);
 
+            let topThreeArray = [];
+
             let foundArtist;
+            let currArray = [];
             for (let i = 0; i < events.length; i++) {
                 for (let j = 0; j < chosenArtistData.length; j++) {
                     foundArtist = events[i].artists.findIndex(
@@ -24,9 +27,17 @@ const Matches = ({ events, artists, chosenArtistArray, chosenArtistData }) => {
                     );
                     if (foundArtist !== -1) {
                         eventCounter[i]++;
+                        currArray.push(chosenArtistData[j].name);
                     }
                 }
+
+                // Add artist matches to topThreeArray
+                topThreeArray.push(currArray);
+                currArray = [];
             }
+
+            console.log('Array object');
+            console.log(topThreeArray);
 
             // Console log counter
             for (let i = 0; i < events.length; i++) {
@@ -61,8 +72,14 @@ const Matches = ({ events, artists, chosenArtistArray, chosenArtistData }) => {
                 }
             }
 
-            // console.log(topThree);
-            return topThree;
+            return {
+                artistData: [
+                    topThreeArray[topThree[0]],
+                    topThreeArray[topThree[1]],
+                    topThreeArray[topThree[2]],
+                ],
+                indices: topThree,
+            };
         }
     };
 
