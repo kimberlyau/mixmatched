@@ -114,11 +114,11 @@ const Artist = () => {
                                 </Grid>
                             </Grid>
                         </div>
-                        <div className='show-lg'>
+                        {/* <div className='show-lg'>
                             <Typography variant='h5' margin={2}>
                                 Related Artists
                             </Typography>
-                        </div>
+                        </div> */}
                     </Grid>
                 </Grid>
             </div>
