@@ -1,11 +1,7 @@
 import * as React from 'react';
-import { Box, Card, CardActionArea } from '@mui/material';
-import CardActions from '@mui/material/CardActions';
+import { Card, CardActionArea } from '@mui/material';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-
-import EventEdit from './pages/Admin_Event';
 
 export default function BasicCard() {
     return (
