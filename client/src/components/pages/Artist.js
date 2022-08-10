@@ -5,7 +5,7 @@ import artistData from '../../assets/files/frank-ocean.json';
 
 import { Button, Grid, Typography } from '@mui/material';
 import { Home } from '@mui/icons-material';
-import getAudioFeatures_Track from '../../utils/spotifyAPI';
+import getSingleSpotifyArtist from '../../utils/spotifyAPI';
 
 // import { GridFilterModel } from '@mui/x-data-grid';
 // import { makeStyles } from '@mui/styles';
@@ -15,7 +15,7 @@ const Artist = () => {
     const navigate = useNavigate();
     let artistId = '0Vw76uk7P8yVtTClWyOhac';
 
-    let responseData = getAudioFeatures_Track((data) => {
+    let responseData = getSingleSpotifyArtist((data) => {
         console.log(data);
         return data;
     }, artistId);
