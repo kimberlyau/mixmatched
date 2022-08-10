@@ -7,7 +7,6 @@ MixMatched is a MERN stack web application that acts as a comparison tool for up
 It interfaces with the Spotify API for artist data and user inputted database for upcoming event information.
 
 <head>
-<title>MixMatched</title>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="./assets/theme.css">
 <link rel="stylesheet" type="text/css" href="./assets/fonts/fonts.css">
