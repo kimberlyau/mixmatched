@@ -39,7 +39,7 @@ const getAuth = async () => {
     return promise;
 };
 
-const getAudioFeatures_Track = async (callback, artistId) => {
+const getSingleSpotifyArtist = async (callback, artistId) => {
     // let artistId = '0HthCchcL0kVLHTr113Vk1';
     const access_token = await getAuth();
 
@@ -63,4 +63,4 @@ const getAudioFeatures_Track = async (callback, artistId) => {
     // xhr.send();
 };
 
-export default getAudioFeatures_Track;
+export default getSingleSpotifyArtist;
